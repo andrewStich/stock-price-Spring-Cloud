@@ -10,3 +10,12 @@ eureka:
       defaultZone: http://localhost:8302/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 0
+    
+zuul:
+  prefix: /api
+  routes:    db-service:
+      path: /db-service/**
+      url: http://localhost:8300
+    stock-service:
+      path: /stock-service/**
+      url: http://localhost:8301
